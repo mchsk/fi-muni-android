@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">cv2</string>
     <string name="hello_from_github">Hello from Github!</string>
+    <string name="open_listviewactivity">Open ListViewActivity</string>
 </resources>

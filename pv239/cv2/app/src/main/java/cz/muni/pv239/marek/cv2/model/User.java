@@ -10,6 +10,7 @@ public class User {
 
     @SerializedName("avatar_url")
     private String avatarUrl;
+    private String login;
 
     public String getAvatarUrl() {
         return avatarUrl;
@@ -17,5 +18,13 @@ public class User {
 
     public void setAvatarUrl(String avatarUrl) {
         this.avatarUrl = avatarUrl;
+    }
+
+    public String getLogin() {
+        return login;
+    }
+
+    public void setLogin(String login) {
+        this.login = login;
     }
 }

@@ -18,11 +18,11 @@ import java.util.List;
 
 import cz.muni.pv239.marek.cv2.model.User;
 
-public class CustomList extends ArrayAdapter<User>{
+public class UserAdapter extends ArrayAdapter<User>{
 
-    public CustomList(Activity context,
-                      List<User> watcherList) {
-        super(context, R.layout.list_single, watcherList);
+    public UserAdapter(Activity context,
+                       List<User> watcherList) {
+        super(context, R.layout.list_user_item, watcherList);
     }
 
     @Override
@@ -32,7 +32,7 @@ public class CustomList extends ArrayAdapter<User>{
 
         // if the view is being reused
         if (convertView == null) {
-            convertView = LayoutInflater.from(getContext()).inflate(R.layout.list_single, parent, false);
+            convertView = LayoutInflater.from(getContext()).inflate(R.layout.list_user_item, parent, false);
         }
 
         // get the views i want to update

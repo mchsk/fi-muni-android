@@ -1,16 +1,11 @@
 package cz.muni.pv239.marek.cv2;
 
-import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.Toast;
-
-import com.bumptech.glide.Glide;
 
 import java.util.List;
 
@@ -35,7 +30,7 @@ public class ListViewActivity extends AppCompatActivity {
     }
 
     private void populateListView(final List<User> watcherList) {
-        CustomList adapter = new CustomList(ListViewActivity.this, watcherList);
+        UserAdapter adapter = new UserAdapter(ListViewActivity.this, watcherList);
         mWatchersListView = (ListView)findViewById(R.id.list);
         mWatchersListView.setAdapter(adapter);
         mWatchersListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {

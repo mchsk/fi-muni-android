@@ -30,7 +30,7 @@ import java.io.IOException;
 public class MainActivity extends AppCompatActivity {
 
     private static final int REQUEST_WRITE_PERMISSION = 1001;
-    private static final String TAG = "CV3";
+    private static final String TAG = "MainActivity";
     private Button mSaveButton;
     private EditText mContentEditText;
 
@@ -122,21 +122,25 @@ public class MainActivity extends AppCompatActivity {
             String content = mContentEditText.getText().toString();
 
             // getting the root sd card directory
-            File root = ContextCompat.getExternalFilesDirs(this, null)[0];
+            File rootDir = ContextCompat.getExternalFilesDirs(this, null)[0];
 
             // it may happen we do not have external memory available now
-            if (root == null) {
+            if (rootDir == null) {
+                Toast.makeText(this, "SD card not found.", Toast.LENGTH_SHORT).show();
                 return;
             }
 
-            File file = new File(root, "cv3.txt");
+            File file = new File(rootDir, "cv3.txt");
 
             Log.i(TAG, file.getAbsolutePath());
 
             // make sure the file exists
             if (!file.exists()) {
                 Boolean created = file.createNewFile();
-                Log.i(TAG, created.toString());
+                if (!created) {
+                    Toast.makeText(this, "Could not create the file.", Toast.LENGTH_SHORT).show();
+                    return;
+                }
             }
 
             // writing the data

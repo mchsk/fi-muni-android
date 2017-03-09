@@ -44,7 +44,7 @@ public class ListViewActivity extends AppCompatActivity {
     }
 
     private void loadWatchers(String username, String repositoryName) {
-        Call<List<User>> userCall = mGitHubApi.getService().getWatherList(username, repositoryName);
+        Call<List<User>> userCall = mGitHubApi.getService().getWatcherList(username, repositoryName);
         userCall.enqueue(new Callback<List<User>>() {
 
             @Override

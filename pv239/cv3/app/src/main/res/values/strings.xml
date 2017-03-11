@@ -2,4 +2,8 @@
     <string name="app_name">cv3</string>
     <string name="save">Save</string>
     <string name="content">Content</string>
+    <string name="profile_save">Save</string>
+    <string name="profile_name">Name</string>
+    <string name="profile_surname">Surname</string>
+    <string name="realm_sample_activity">Realm Sample activity</string>
 </resources>

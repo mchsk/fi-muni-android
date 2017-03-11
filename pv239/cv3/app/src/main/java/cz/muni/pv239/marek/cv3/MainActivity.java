@@ -32,6 +32,7 @@ public class MainActivity extends AppCompatActivity {
     private static final int REQUEST_WRITE_PERMISSION = 1001;
     private static final String TAG = "MainActivity";
     private Button mSaveButton;
+    private Button mRealmSampleButton;
     private EditText mContentEditText;
 
     @Override
@@ -60,6 +61,14 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 savingPermissionCheck();
+            }
+        });
+        mRealmSampleButton = (Button) findViewById(R.id.realmSampleButton);
+        mRealmSampleButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getBaseContext(), ProfileActivity.class);
+                startActivity(intent);
             }
         });
     }
@@ -132,6 +141,7 @@ public class MainActivity extends AppCompatActivity {
 
             File file = new File(rootDir, "cv3.txt");
 
+            // this way you can log
             Log.i(TAG, file.getAbsolutePath());
 
             // make sure the file exists

@@ -30,5 +30,12 @@
         android:text="@string/save"
         tools:layout_editor_absoluteX="147dp"
         tools:layout_editor_absoluteY="275dp" />
+    <Button
+        android:id="@+id/realmSampleButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/realm_sample_activity"
+        tools:layout_editor_absoluteX="147dp"
+        tools:layout_editor_absoluteY="275dp" />
 
 </LinearLayout>

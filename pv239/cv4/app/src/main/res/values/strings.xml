@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">cv4</string>
+    <string name="calc_close">Close</string>
+    <string name="open_calc">Open Calc</string>
+</resources>

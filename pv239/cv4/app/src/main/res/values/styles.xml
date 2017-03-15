@@ -1,0 +1,44 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:windowBackground">@drawable/activity_background</item>
+        <item name="android:buttonStyle">@style/AllButtons</item>
+    </style>
+
+    <style name="AllButtons">
+        <item name="android:background">@drawable/button</item>
+        <item name="android:minWidth">@dimen/calc_button_min_width</item>
+        <item name="android:minHeight">@dimen/calc_button_min_height</item>
+    </style>
+
+    <!-- custom -> -->
+
+    <dimen name="calc_button_min_width">50dp</dimen>
+    <dimen name="calc_button_min_height">40dp</dimen>
+    <dimen name="calc_button_margin">10dp</dimen>
+
+    <!-- calc buttons -->
+    <style name="CalcButton">
+        <item name="android:minWidth">@dimen/calc_button_min_width</item>
+        <item name="android:minHeight">@dimen/calc_button_min_height</item>
+        <item name="android:background">@drawable/calc_button</item>
+        <item name="android:gravity">center</item>
+        <item name="android:layout_margin">@dimen/calc_button_margin</item>
+    </style>
+
+    <!-- extra calc buttons -->
+    <style name="CalcExtraButton" parent="CalcButton">
+        <item name="android:background">@drawable/calc_button_extra</item>
+    </style>
+
+    <style name="CalcDisplayTextAppearance" parent="TextAppearance.AppCompat">
+        <item name="android:textColor">#0F0</item>
+        <item name="android:textStyle">italic</item>
+    </style>
+
+</resources>

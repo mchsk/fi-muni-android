@@ -14,6 +14,7 @@ android {
 
     signingConfigs {
         // it is not safe to store passwords here // todo change
+        // but you get the idea :)
         debug {
             storeFile file('../extras/keystore/release.jks')
             keyAlias 'android'
@@ -33,6 +34,8 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
             signingConfig signingConfigs.debug
+            applicationIdSuffix ".debug"
+
         }
         release {
             minifyEnabled true
@@ -41,6 +44,18 @@ android {
             signingConfig signingConfigs.release
         }
     }
+
+    productFlavors {
+        demo {
+            applicationIdSuffix ".demo"
+            versionNameSuffix "-demo"
+        }
+        full {
+            applicationIdSuffix ".full"
+            versionNameSuffix "-full"
+        }
+    }
+
 }
 
 dependencies {

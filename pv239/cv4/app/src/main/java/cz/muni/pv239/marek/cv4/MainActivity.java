@@ -28,5 +28,8 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        // if the build is not the "full" flavor, the "calculator" button will be disabled
+        openCalcButton.setEnabled(BuildConfig.FLAVOR.equals("full"));
     }
 }

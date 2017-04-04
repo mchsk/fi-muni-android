@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">cv5</string>
+    <string name="action_settings">Settings</string>
+    <string name="open_recyclerview_btn">RecyclerView</string>
+</resources>

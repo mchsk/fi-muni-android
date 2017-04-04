@@ -30,4 +30,10 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    @OnClick(R.id.multipaneActivityButton)
+    public void openMultiPaneFragmentActivity() {
+        Intent intent = new Intent(getBaseContext(), MultiPaneActivity.class);
+        startActivity(intent);
+    }
+
 }

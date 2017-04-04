@@ -2,6 +2,8 @@ package cz.muni.pv239.marek.cv5.dagger;
 
 import android.content.Context;
 
+import com.jakewharton.retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
+
 import javax.inject.Singleton;
 
 import cz.muni.pv239.marek.cv5.api.GitHubService;
@@ -30,6 +32,7 @@ public class AppModule {
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(GITHUB_API_ENDPOINT)
                 .addConverterFactory(GsonConverterFactory.create())
+                .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .build();
 
         return retrofit.create(GitHubService.class);

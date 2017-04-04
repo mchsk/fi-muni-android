@@ -71,7 +71,7 @@ public class RecyclerViewActivity extends AppCompatActivity {
 
 
     private void loadWatchers(String username, String repositoryName) {
-        Observable<Response<List<User>>> watchersObservalbe = mGitHubApi.getService().getWatcherList(username, repositoryName);
+        Observable<Response<List<User>>> watchersObservalbe = mGitHubService.getWatcherList(username, repositoryName);
         watchersObservalbe
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())

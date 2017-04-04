@@ -16,14 +16,9 @@ import cz.muni.pv239.marek.cv5.model.User;
 public class WatchersAdapter extends RecyclerView.Adapter<WatcherViewHolder> {
 
     private List<User> watcherList;
-    private Context context;
 
     public WatchersAdapter(List<User> watcherList) {
         this.watcherList = watcherList;
-    }
-    public WatchersAdapter(List<User> watcherList, Context context) {
-        this(watcherList);
-        this.context = context;
     }
 
     @Override

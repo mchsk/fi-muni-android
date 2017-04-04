@@ -10,7 +10,11 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.inject.Inject;
+
 import cz.muni.pv239.marek.cv5.api.GitHubApi;
+import cz.muni.pv239.marek.cv5.dagger.App;
+import cz.muni.pv239.marek.cv5.dagger.AppComponent;
 import cz.muni.pv239.marek.cv5.model.User;
 import cz.muni.pv239.marek.cv5.recyclerview.DividerItemDecoration;
 import cz.muni.pv239.marek.cv5.recyclerview.WatchersAdapter;
@@ -24,16 +28,21 @@ public class RecyclerViewActivity extends AppCompatActivity {
     private GitHubApi mGitHubApi = new GitHubApi();
     private List<User> watcherList = new ArrayList<>();
     private RecyclerView recyclerView;
-    private WatchersAdapter mAdapter;
+    private AppComponent appComponent;
+    @Inject
+    public WatchersAdapter mAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_recycler);
 
+        appComponent = ((App)getApplicationContext()).getAppComponent();
+        appComponent.inject(this);
+
         recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
 
-        mAdapter = new WatchersAdapter(watcherList, getApplicationContext());
+        mAdapter = new WatchersAdapter(watcherList);
 
         recyclerView.setHasFixedSize(true);
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());

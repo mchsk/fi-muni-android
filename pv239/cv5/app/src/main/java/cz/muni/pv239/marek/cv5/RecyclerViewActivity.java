@@ -1,6 +1,5 @@
 package cz.muni.pv239.marek.cv5;
 
-
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DefaultItemAnimator;
@@ -8,13 +7,16 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.Toast;
+
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.inject.Inject;
 
-import cz.muni.pv239.marek.cv5.api.GitHubApi;
+import cz.muni.pv239.marek.cv5.api.GitHubService;
 import cz.muni.pv239.marek.cv5.model.User;
 import cz.muni.pv239.marek.cv5.recyclerview.DividerItemDecoration;
+import cz.muni.pv239.marek.cv5.recyclerview.RecyclerTouchListener;
 import cz.muni.pv239.marek.cv5.recyclerview.WatchersAdapter;
 import cz.muni.pv239.marek.cv5.recyclerview.RecyclerTouchListener;
 import io.reactivex.Observable;
@@ -26,28 +28,32 @@ import retrofit2.Response;
 import timber.log.Timber;
 
 public class RecyclerViewActivity extends AppCompatActivity {
-    private GitHubApi mGitHubApi = new GitHubApi();
-    private List<User> watcherList = new ArrayList<>();
-    private RecyclerView recyclerView;
-    private WatchersAdapter mAdapter;
+
+    private final List<User> watcherList = new ArrayList<>();
+
+    @Inject
+    WatchersAdapter mAdapter;
+
+    @Inject
+    GitHubService mGitHubService;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_recycler);
 
-        recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
+        ((Cv5App) getApplication()).getAppComponent().inject(this);
 
-        mAdapter = new WatchersAdapter(watcherList);
-
-        recyclerView.setHasFixedSize(true);
+        RecyclerView mRecyclerView = (RecyclerView) findViewById(R.id.recycler_view);
+        mRecyclerView.setHasFixedSize(true);
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
-        recyclerView.setLayoutManager(mLayoutManager);
-        recyclerView.addItemDecoration(new DividerItemDecoration(this, LinearLayoutManager.VERTICAL));
-        recyclerView.setItemAnimator(new DefaultItemAnimator());
-        recyclerView.setAdapter(mAdapter);
+        mRecyclerView.setLayoutManager(mLayoutManager);
+        mRecyclerView.addItemDecoration(new DividerItemDecoration(this, LinearLayoutManager.VERTICAL));
+        mRecyclerView.setItemAnimator(new DefaultItemAnimator());
+        mAdapter.setWatcherList(watcherList);
+        mRecyclerView.setAdapter(mAdapter);
 
-        recyclerView.addOnItemTouchListener(new RecyclerTouchListener(getApplicationContext(), recyclerView, new RecyclerTouchListener.ClickListener() {
+        mRecyclerView.addOnItemTouchListener(new RecyclerTouchListener(getApplicationContext(), mRecyclerView, new RecyclerTouchListener.ClickListener() {
             @Override
             public void onClick(View view, int position) {
                 User watcher = watcherList.get(position);

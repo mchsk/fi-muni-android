@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="step_titles">
+        <item>@string/step_1_title</item>
+        <item>@string/step_2_title</item>
+        <item>@string/step_3_title</item>
+        <item>@string/step_4_title</item>
+        <item>@string/step_5_title</item>
+        <item>@string/step_6_title</item>
+        <item>@string/step_7_title</item>
+    </string-array>
+
+    <string-array name="step_details">
+        <item>@string/step_1_descr</item>
+        <item>@string/step_2_descr</item>
+        <item>@string/step_3_descr</item>
+        <item>@string/step_4_descr</item>
+        <item>@string/step_5_descr</item>
+        <item>@string/step_6_descr</item>
+        <item>@string/step_7_descr</item>
+    </string-array>
+</resources>

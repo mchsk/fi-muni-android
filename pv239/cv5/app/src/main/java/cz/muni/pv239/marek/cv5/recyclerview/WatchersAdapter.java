@@ -8,17 +8,21 @@ import android.view.ViewGroup;
 
 import com.bumptech.glide.Glide;
 
+import java.util.Collections;
 import java.util.List;
+
+import javax.inject.Inject;
 
 import cz.muni.pv239.marek.cv5.R;
 import cz.muni.pv239.marek.cv5.model.User;
 
 public class WatchersAdapter extends RecyclerView.Adapter<WatcherViewHolder> {
+    private final Context context;
+    private List<User> watcherList = Collections.emptyList();
 
-    private List<User> watcherList;
-
-    public WatchersAdapter(List<User> watcherList) {
-        this.watcherList = watcherList;
+    @Inject
+    WatchersAdapter(Context context) {
+        this.context = context;
     }
 
     @Override
@@ -33,11 +37,15 @@ public class WatchersAdapter extends RecyclerView.Adapter<WatcherViewHolder> {
     public void onBindViewHolder(WatcherViewHolder holder, int position) {
         User watcher = watcherList.get(position);
         holder.loginTextView.setText(watcher.getLogin());
-        Glide.with(holder.loginTextView.getContext()).load(watcher.getAvatarUrl()).into(holder.avatarImageView);
+        Glide.with(context).load(watcher.getAvatarUrl()).into(holder.avatarImageView);
     }
 
     @Override
     public int getItemCount() {
         return watcherList.size();
+    }
+
+    public void setWatcherList(List<User> watcherList) {
+        this.watcherList = watcherList;
     }
 }

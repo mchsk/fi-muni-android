@@ -1,22 +1,22 @@
-package cz.muni.pv239.marek.cv5.dagger;
+package cz.muni.pv239.marek.cv5;
 
 import android.app.Application;
 
-/**
- * Created by marek on 04.04.17.
- */
+import cz.muni.pv239.marek.cv5.dagger.AppComponent;
+import cz.muni.pv239.marek.cv5.dagger.AppModule;
+import cz.muni.pv239.marek.cv5.dagger.DaggerAppComponent;
 
-public class App extends Application {
+public class Cv5App extends Application {
+
     private AppComponent appComponent;
 
     @Override
     public void onCreate() {
         super.onCreate();
-        appComponent = DaggerAppComponent
-                .builder()
+
+        appComponent = DaggerAppComponent.builder()
                 .appModule(new AppModule(this))
                 .build();
-        appComponent.inject(this);
     }
 
     public AppComponent getAppComponent() {

@@ -1,33 +1,37 @@
 package cz.muni.pv239.marek.cv5.dagger;
 
-import android.app.Application;
+import android.content.Context;
 
 import javax.inject.Singleton;
 
-import cz.muni.pv239.marek.cv5.recyclerview.WatchersAdapter;
+import cz.muni.pv239.marek.cv5.api.GitHubService;
 import dagger.Module;
 import dagger.Provides;
-
-/**
- * Created by marek on 04.04.17.
- */
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 @Module
 public class AppModule {
-    private Application app;
+    private final static String GITHUB_API_ENDPOINT = "https://api.github.com";
+    private final Context context;
 
-    public AppModule(Application app) {
-        this.app = app;
+    public AppModule(Context context) {
+        this.context = context;
+    }
+
+    @Provides
+    Context provideContext() {
+        return context;
     }
 
     @Provides
     @Singleton
-    public Application application() {
-        return app;
-    }
+    GitHubService provideGitHubService() {
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(GITHUB_API_ENDPOINT)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
 
-//    @Provides @Singleton
-//    public WatchersAdapter provideWatchersAdapter() {
-//        return new WatchersAdapter();
-//    }
+        return retrofit.create(GitHubService.class);
+    }
 }

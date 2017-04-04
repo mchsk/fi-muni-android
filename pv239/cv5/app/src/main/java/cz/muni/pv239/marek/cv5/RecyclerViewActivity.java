@@ -7,51 +7,49 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.Toast;
+
 import java.util.ArrayList;
 import java.util.List;
 
 import javax.inject.Inject;
 
-import cz.muni.pv239.marek.cv5.api.GitHubApi;
-import cz.muni.pv239.marek.cv5.dagger.App;
-import cz.muni.pv239.marek.cv5.dagger.AppComponent;
+import cz.muni.pv239.marek.cv5.api.GitHubService;
 import cz.muni.pv239.marek.cv5.model.User;
 import cz.muni.pv239.marek.cv5.recyclerview.DividerItemDecoration;
-import cz.muni.pv239.marek.cv5.recyclerview.WatchersAdapter;
 import cz.muni.pv239.marek.cv5.recyclerview.RecyclerTouchListener;
+import cz.muni.pv239.marek.cv5.recyclerview.WatchersAdapter;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 import timber.log.Timber;
 
 public class RecyclerViewActivity extends AppCompatActivity {
-    private GitHubApi mGitHubApi = new GitHubApi();
-    private List<User> watcherList = new ArrayList<>();
-    private RecyclerView recyclerView;
-    private AppComponent appComponent;
+
+    private final List<User> watcherList = new ArrayList<>();
+
     @Inject
-    public WatchersAdapter mAdapter;
+    WatchersAdapter mAdapter;
+
+    @Inject
+    GitHubService mGitHubService;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_recycler);
 
-        appComponent = ((App)getApplicationContext()).getAppComponent();
-        appComponent.inject(this);
+        ((Cv5App) getApplication()).getAppComponent().inject(this);
 
-        recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
-
-        mAdapter = new WatchersAdapter(watcherList);
-
-        recyclerView.setHasFixedSize(true);
+        RecyclerView mRecyclerView = (RecyclerView) findViewById(R.id.recycler_view);
+        mRecyclerView.setHasFixedSize(true);
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
-        recyclerView.setLayoutManager(mLayoutManager);
-        recyclerView.addItemDecoration(new DividerItemDecoration(this, LinearLayoutManager.VERTICAL));
-        recyclerView.setItemAnimator(new DefaultItemAnimator());
-        recyclerView.setAdapter(mAdapter);
+        mRecyclerView.setLayoutManager(mLayoutManager);
+        mRecyclerView.addItemDecoration(new DividerItemDecoration(this, LinearLayoutManager.VERTICAL));
+        mRecyclerView.setItemAnimator(new DefaultItemAnimator());
+        mAdapter.setWatcherList(watcherList);
+        mRecyclerView.setAdapter(mAdapter);
 
-        recyclerView.addOnItemTouchListener(new RecyclerTouchListener(getApplicationContext(), recyclerView, new RecyclerTouchListener.ClickListener() {
+        mRecyclerView.addOnItemTouchListener(new RecyclerTouchListener(getApplicationContext(), mRecyclerView, new RecyclerTouchListener.ClickListener() {
             @Override
             public void onClick(View view, int position) {
                 User watcher = watcherList.get(position);
@@ -69,7 +67,7 @@ public class RecyclerViewActivity extends AppCompatActivity {
 
 
     private void loadWatchers(String username, String repositoryName) {
-        Call<List<User>> userCall = mGitHubApi.getService().getWatcherList(username, repositoryName);
+        Call<List<User>> userCall = mGitHubService.getWatcherList(username, repositoryName);
         userCall.enqueue(new Callback<List<User>>() {
 
             @Override

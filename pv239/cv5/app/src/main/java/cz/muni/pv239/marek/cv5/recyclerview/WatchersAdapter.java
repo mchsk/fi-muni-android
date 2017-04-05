@@ -17,12 +17,12 @@ import cz.muni.pv239.marek.cv5.R;
 import cz.muni.pv239.marek.cv5.model.User;
 
 public class WatchersAdapter extends RecyclerView.Adapter<WatcherViewHolder> {
-    private final Context context;
-    private List<User> watcherList = Collections.emptyList();
+    private final Context mContext;
+    private List<User> mWatcherList = Collections.emptyList();
 
     @Inject
     WatchersAdapter(Context context) {
-        this.context = context;
+        this.mContext = context;
     }
 
     @Override
@@ -36,17 +36,17 @@ public class WatchersAdapter extends RecyclerView.Adapter<WatcherViewHolder> {
     @Override
     public void onBindViewHolder(WatcherViewHolder holder, int position) {
         // we make use of
-        User watcher = watcherList.get(position);
+        User watcher = mWatcherList.get(position);
         holder.loginTextView.setText(watcher.getLogin());
-        Glide.with(context).load(watcher.getAvatarUrl()).into(holder.avatarImageView);
+        Glide.with(mContext).load(watcher.getAvatarUrl()).into(holder.avatarImageView);
     }
 
     @Override
     public int getItemCount() {
-        return watcherList.size();
+        return mWatcherList.size();
     }
 
-    public void setWatcherList(List<User> watcherList) {
-        this.watcherList = watcherList;
+    public void setmWatcherList(List<User> mWatcherList) {
+        this.mWatcherList = mWatcherList;
     }
 }

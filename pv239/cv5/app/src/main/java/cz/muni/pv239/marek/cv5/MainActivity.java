@@ -4,8 +4,11 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
+import javax.inject.Inject;
+
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import cz.muni.pv239.marek.cv5.recyclerview.WatchersAdapter;
 import timber.log.Timber;
 
 public class MainActivity extends AppCompatActivity {

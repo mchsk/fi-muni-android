@@ -59,7 +59,7 @@ public class RecyclerViewActivity extends AppCompatActivity {
         mRecyclerView.setItemAnimator(new DefaultItemAnimator());
 
         // setting the adapter
-        mAdapter.setWatcherList(mWatcherList);
+        mAdapter.setmWatcherList(mWatcherList);
         mRecyclerView.setAdapter(mAdapter);
 
         // onitemtouch

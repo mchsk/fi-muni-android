@@ -13,6 +13,8 @@ import java.util.List;
 
 import javax.inject.Inject;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
 import cz.muni.pv239.marek.cv5.api.GitHubService;
 import cz.muni.pv239.marek.cv5.model.User;
 import cz.muni.pv239.marek.cv5.recyclerview.DividerItemDecoration;
@@ -28,7 +30,7 @@ import timber.log.Timber;
 
 public class RecyclerViewActivity extends AppCompatActivity {
 
-    private final List<User> watcherList = new ArrayList<>();
+    private final List<User> mWatcherList = new ArrayList<>();
 
     @Inject
     WatchersAdapter mAdapter;
@@ -36,27 +38,38 @@ public class RecyclerViewActivity extends AppCompatActivity {
     @Inject
     GitHubService mGitHubService;
 
+    @BindView(R.id.recycler_view)
+    RecyclerView mRecyclerView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_recycler);
 
+        // butterknife
+        ButterKnife.bind(this);
+
+        // dagger injection init
         ((Cv5App) getApplication()).getAppComponent().inject(this);
 
-        RecyclerView mRecyclerView = (RecyclerView) findViewById(R.id.recycler_view);
+        // recyclerview setup
         mRecyclerView.setHasFixedSize(true);
-        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
-        mRecyclerView.setLayoutManager(mLayoutManager);
+        mRecyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
         mRecyclerView.addItemDecoration(new DividerItemDecoration(this, LinearLayoutManager.VERTICAL));
         mRecyclerView.setItemAnimator(new DefaultItemAnimator());
-        mAdapter.setWatcherList(watcherList);
+
+        // setting the adapter
+        mAdapter.setWatcherList(mWatcherList);
         mRecyclerView.setAdapter(mAdapter);
 
-        mRecyclerView.addOnItemTouchListener(new RecyclerTouchListener(getApplicationContext(), mRecyclerView, new RecyclerTouchListener.ClickListener() {
+        // onitemtouch
+        mRecyclerView.addOnItemTouchListener(new RecyclerTouchListener(getApplicationContext(),
+                mRecyclerView, new RecyclerTouchListener.ClickListener() {
             @Override
             public void onClick(View view, int position) {
-                User user = watcherList.get(position);
-                Toast.makeText(getApplicationContext(), "You clicked + " + user.getLogin(), Toast.LENGTH_SHORT).show();
+                User user = mWatcherList.get(position);
+                Toast.makeText(getApplicationContext(),
+                        "You clicked + " + user.getLogin(), Toast.LENGTH_SHORT).show();
             }
 
             @Override
@@ -70,7 +83,11 @@ public class RecyclerViewActivity extends AppCompatActivity {
 
 
     private void loadWatchers(String username, String repositoryName) {
+
+        // observable
         Observable<Response<List<User>>> watchersObservable = mGitHubService.getWatcherList(username, repositoryName);
+
+        // create subscription
         watchersObservable
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
@@ -82,7 +99,7 @@ public class RecyclerViewActivity extends AppCompatActivity {
 
             @Override
             public void onNext(Response<List<User>> listResponse) {
-                watcherList.addAll(listResponse.body());
+                mWatcherList.addAll(listResponse.body());
                 mAdapter.notifyDataSetChanged();
             }
 

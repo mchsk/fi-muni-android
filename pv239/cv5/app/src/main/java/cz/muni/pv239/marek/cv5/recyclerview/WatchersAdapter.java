@@ -35,6 +35,7 @@ public class WatchersAdapter extends RecyclerView.Adapter<WatcherViewHolder> {
 
     @Override
     public void onBindViewHolder(WatcherViewHolder holder, int position) {
+        // we make use of
         User watcher = watcherList.get(position);
         holder.loginTextView.setText(watcher.getLogin());
         Glide.with(context).load(watcher.getAvatarUrl()).into(holder.avatarImageView);

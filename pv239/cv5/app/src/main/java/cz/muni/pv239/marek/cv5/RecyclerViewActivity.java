@@ -71,8 +71,8 @@ public class RecyclerViewActivity extends AppCompatActivity {
 
 
     private void loadWatchers(String username, String repositoryName) {
-        Observable<Response<List<User>>> watchersObservalbe = mGitHubService.getWatcherList(username, repositoryName);
-        watchersObservalbe
+        Observable<Response<List<User>>> watchersObservable = mGitHubService.getWatcherList(username, repositoryName);
+        watchersObservable
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeWith(createWatchersObserver());
@@ -83,16 +83,14 @@ public class RecyclerViewActivity extends AppCompatActivity {
 
             @Override
             public void onNext(Response<List<User>> listResponse) {
-                for (User watcher : listResponse.body()) {
-                    watcherList.add(watcher);
-                }
-
+                watcherList.addAll(listResponse.body());
                 mAdapter.notifyDataSetChanged();
             }
 
             @Override
             public void onError(Throwable e) {
                 Timber.e(e);
+                e.printStackTrace();
             }
 
             @Override

@@ -2,10 +2,8 @@ package cz.muni.pv239.marek.cv5.api;
 
 import java.util.List;
 
-
 import cz.muni.pv239.marek.cv5.model.User;
 import io.reactivex.Observable;
-import retrofit2.Call;
 import retrofit2.Response;
 import retrofit2.http.GET;
 import retrofit2.http.Path;

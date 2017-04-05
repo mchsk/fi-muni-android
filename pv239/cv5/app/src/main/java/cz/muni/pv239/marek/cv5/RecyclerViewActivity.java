@@ -18,7 +18,6 @@ import cz.muni.pv239.marek.cv5.model.User;
 import cz.muni.pv239.marek.cv5.recyclerview.DividerItemDecoration;
 import cz.muni.pv239.marek.cv5.recyclerview.RecyclerTouchListener;
 import cz.muni.pv239.marek.cv5.recyclerview.WatchersAdapter;
-import cz.muni.pv239.marek.cv5.recyclerview.RecyclerTouchListener;
 import io.reactivex.Observable;
 import io.reactivex.Observer;
 import io.reactivex.android.schedulers.AndroidSchedulers;
@@ -56,8 +55,8 @@ public class RecyclerViewActivity extends AppCompatActivity {
         mRecyclerView.addOnItemTouchListener(new RecyclerTouchListener(getApplicationContext(), mRecyclerView, new RecyclerTouchListener.ClickListener() {
             @Override
             public void onClick(View view, int position) {
-                User watcher = watcherList.get(position);
-                Toast.makeText(getApplicationContext(), "You clicked + " + watcher.getLogin(), Toast.LENGTH_SHORT).show();
+                User user = watcherList.get(position);
+                Toast.makeText(getApplicationContext(), "You clicked + " + user.getLogin(), Toast.LENGTH_SHORT).show();
             }
 
             @Override

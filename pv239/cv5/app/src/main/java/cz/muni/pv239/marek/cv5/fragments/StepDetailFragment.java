@@ -17,7 +17,7 @@ public class StepDetailFragment extends Fragment {
     String[] mStepDetails;
     TextView mStepDetailTextView;
 
-    public StepDetailFragment(){
+    public StepDetailFragment() {
     }
 
     @Override
@@ -31,7 +31,7 @@ public class StepDetailFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
-        if (savedInstanceState != null){
+        if (savedInstanceState != null) {
             mCurrentPosition = savedInstanceState.getInt(KEY_POSITION);
         }
 
@@ -46,14 +46,14 @@ public class StepDetailFragment extends Fragment {
         super.onStart();
 
         Bundle args = getArguments();
-        if (args != null){
+        if (args != null) {
             setDescription(args.getInt(KEY_POSITION));
-        } else if(mCurrentPosition != -1){
+        } else if (mCurrentPosition != -1) {
             setDescription(mCurrentPosition);
         }
     }
 
-    public void setDescription(int descriptionIndex){
+    public void setDescription(int descriptionIndex) {
         mStepDetailTextView.setText(mStepDetails[descriptionIndex]);
         mCurrentPosition = descriptionIndex;
     }
@@ -62,6 +62,6 @@ public class StepDetailFragment extends Fragment {
     public void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
 
-        outState.putInt(KEY_POSITION,mCurrentPosition);
+        outState.putInt(KEY_POSITION, mCurrentPosition);
     }
 }

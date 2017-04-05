@@ -28,7 +28,7 @@ public class StepTitleFragment extends ListFragment {
 
     @Override
     public void onListItemClick(ListView l, View v, int position, long id) {
-        OnVersionNameSelectionChangeListener listener = (OnVersionNameSelectionChangeListener) getActivity();
+        OnStepChangedListener listener = (OnStepChangedListener) getActivity();
         listener.OnSelectionChanged(position);
     }
 }

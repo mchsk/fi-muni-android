@@ -20,6 +20,6 @@ public interface GitHubService {
 
     // https://developer.github.com/v3/activity/watching/
     @GET("repos/{username}/{reponame}/subscribers")
-    Call<List<User>> getWatcherList(@Path("username") String username, @Path("reponame") String reponame);
+    Call<List<User>> getSubscriberList(@Path("username") String username, @Path("reponame") String reponame);
 
 }

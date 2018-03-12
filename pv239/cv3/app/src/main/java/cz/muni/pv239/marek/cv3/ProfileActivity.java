@@ -55,34 +55,42 @@ public class ProfileActivity extends AppCompatActivity {
     }
 
     private void storeProfile() {
-        mRealm.beginTransaction();
+        try {
+            mRealm.beginTransaction();
 
-        UserProfile userProfile = mRealm.where(UserProfile.class).findFirst();
+            UserProfile userProfile = mRealm.where(UserProfile.class).findFirst();
 
-        if (userProfile == null) {
-            userProfile = mRealm.createObject(UserProfile.class);
+            if (userProfile == null) {
+                userProfile = mRealm.createObject(UserProfile.class);
+            }
+
+            // set the property values
+            // notice, we can use .trim() on String instance to eliminate white spaces
+            userProfile.setName(mNameEditText.getText().toString().trim());
+            userProfile.setSurname(mSurnameEditText.getText().toString().trim());
+
+            // sync with db
+            mRealm.commitTransaction();
+        } catch (Exception e) {
+            mRealm.cancelTransaction();
         }
-
-        // set the property values
-        // notice, we can use .trim() on String instance to eliminate white spaces
-        userProfile.setName(mNameEditText.getText().toString().trim());
-        userProfile.setSurname(mSurnameEditText.getText().toString().trim());
-
-        // sync with db
-        mRealm.commitTransaction();
     }
 
     private void displayProfile() {
-        mRealm.beginTransaction();
+        try {
+            mRealm.beginTransaction();
 
 
-        UserProfile userProfile = mRealm.where(UserProfile.class).findFirst();
+            UserProfile userProfile = mRealm.where(UserProfile.class).findFirst();
 
-        if (userProfile != null) {
-            mNameEditText.setText(userProfile.getName());
-            mSurnameEditText.setText(userProfile.getSurname());
+            if (userProfile != null) {
+                mNameEditText.setText(userProfile.getName());
+                mSurnameEditText.setText(userProfile.getSurname());
+            }
+            mRealm.commitTransaction();
+        } catch (Exception e) {
+            mRealm.cancelTransaction();
         }
-        mRealm.commitTransaction();
     }
 
 }

@@ -1,8 +1,4 @@
-# MUNI Android #2
+# MUNI PV239 Android lessons
 Welcome!
 
-this repository contains example projects for exercise classes of PV239 subj of the Masaryk University, Brno, Czech Rep.
-
-Especially, this is for the Android2 group.
-
-![ANdroid Student - in courtesy of Wikipedia](https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/Android_school.svg/2000px-Android_school.svg.png)
+![Slides](https://drive.google.com/drive/folders/16jWAWTa6GspCPtz_Rvq3b3n3mev_I5mI?usp=sharing)

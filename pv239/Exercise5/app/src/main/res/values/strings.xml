@@ -1,0 +1,50 @@
+<resources>
+    <string name="app_name">Exercise5</string>
+    <string name="app_name_recyclerview">Exercise5 - RecyclerView</string>
+    <string name="app_name_dragons">Exercise5 - How To Train Your Dragon</string>
+    <string name="action_settings">Settings</string>
+    <string name="open_recyclerview_btn">RecyclerView</string>
+    <string name="open_multipane_fragments_btn">MultiPane (Fragments)</string>
+
+    <string name="step_1_title" >1. Get to know your Dragon</string>
+    <string name="step_1_descr">Like I’ve said, each dragon is different. You must recall the times when you were inspired, excited, when you felt passion for something or got angry, mad.. try to remember what were your triggers.
+
+Try to remember the intensity of your emotions. Were they short and powerful or did they last longer and were less intense?
+
+Make a list of all the triggers you can think of and describe your temperament.</string>
+
+    <string name="step_2_title" >2. Put yourself consciously in a position where your Dragon will be triggered</string>
+    <string name="step_2_descr">Now you need to put yourself, consciously – that’s very important – in a position where your dragon will be triggered.
+
+You need to consciously do something from your list to raise your energy.</string>
+
+    <string name="step_3_title" >3. Ride the beast for the first time</string>
+    <string name="step_3_descr">Once you feel that fire burning inside of you, that’s your dragon waking up. Take it for a “test drive”.
+
+Consciously use that energy to create something which will bring you closer to your dreams.
+
+It doesn’t matter if it’s a baby step or a micro step, what matters is to spend that energy on the direction YOU choose to.</string>
+
+    <string name="step_4_title" >4. Feed it, nurture it and let it rest</string>
+    <string name="step_4_descr">After you took your first flight it is time to feed you Dragon. Do something you TRULY feel like doing. Reward yourself with something without thinking too much. Meditate, cool down.</string>
+
+    <string name="step_5_title" >5. The Dark Side of Your Dragon – You must not give in</string>
+    <string name="step_5_descr">THIS IS THE KEY! After you take your first conscious “flight” your “Dragon” will show its dark sides. YOU MUST BE AWARE!
+
+I am going to explain how buddy, do not worry.
+
+Every time we consciously try to raise our energy, to create a positive energy, a contra effect is set in motion. This is because of our emotional baggage, our “Dragon’s Dark Side”.</string>
+
+    <string name="step_6_title" >6. Understand the negative triggers</string>
+    <string name="step_6_descr">We all have an emotional baggage. Those are our shadows, things we run away from and try not to experience. Those are our Dragon’s Negative Triggers.
+
+Try to recall all of your negative triggers and make a list just like in the first step.
+
+Now you must question all of your triggers. Why do they make you feel bad, what’s their deeper meaning, what are you really running away from?</string>
+
+    <string name="step_7_title" >7. Become one with your Dragon</string>
+    <string name="step_7_descr">Once you are rid of all your triggers you and your Dragon will become one. This comes Naturally as you’ll reach your highest frequency.
+
+There will be no more triggers, your “Dragon” will be always “flying” and you will always be in control of where you want to “fly” your “Dragon”.</string>
+
+</resources>

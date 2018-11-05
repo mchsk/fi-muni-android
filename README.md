@@ -1,8 +1,10 @@
-# MUNI Android #2
+![❤️](https://raw.githubusercontent.com/mchsk/fi-muni-android/assets/images/muni.png)
+# PV239 Android lessons
 Welcome!
 
-this repository contains example projects for exercise classes of PV239 subj of the Masaryk University, Brno, Czech Rep.
+1. Download & install [Android Studio](https://developer.android.com/studio/)<br>
+   (also install drivers for your phone if needed)
+2. Join Slack [here](https://pv239.slack.com/)
+3. You can find slides [here](https://drive.google.com/drive/folders/16jWAWTa6GspCPtz_Rvq3b3n3mev_I5mI?usp=sharing)
 
-Especially, this is for the Android2 group.
-
-![ANdroid Student - in courtesy of Wikipedia](https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/Android_school.svg/2000px-Android_school.svg.png)
+See you!

@@ -1,8 +1,8 @@
-package cz.muni.pv239.marek.cv2.api;
+package cz.muni.pv239.marek.exercise2.api;
 
 import java.util.List;
 
-import cz.muni.pv239.marek.cv2.model.User;
+import cz.muni.pv239.marek.exercise2.model.User;
 
 import retrofit2.Call;
 import retrofit2.http.GET;

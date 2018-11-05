@@ -1,4 +1,4 @@
-package cz.muni.pv239.marek.cv2;
+package cz.muni.pv239.marek.exercise2;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -9,8 +9,8 @@ import android.widget.Toast;
 
 import java.util.List;
 
-import cz.muni.pv239.marek.cv2.api.GitHubApi;
-import cz.muni.pv239.marek.cv2.model.User;
+import cz.muni.pv239.marek.exercise2.api.GitHubApi;
+import cz.muni.pv239.marek.exercise2.model.User;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;

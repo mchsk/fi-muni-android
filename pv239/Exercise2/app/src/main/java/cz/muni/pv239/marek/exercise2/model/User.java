@@ -1,4 +1,4 @@
-package cz.muni.pv239.marek.cv2.model;
+package cz.muni.pv239.marek.exercise2.model;
 
 import com.google.gson.annotations.SerializedName;
 

@@ -1,4 +1,4 @@
-package cz.muni.pv239.marek.cv2.api;
+package cz.muni.pv239.marek.exercise2.api;
 
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;

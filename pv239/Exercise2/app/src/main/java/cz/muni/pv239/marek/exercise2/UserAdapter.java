@@ -1,4 +1,4 @@
-package cz.muni.pv239.marek.cv2;
+package cz.muni.pv239.marek.exercise2;
 
 /**
  * Created by marek on 03.03.17.
@@ -16,7 +16,7 @@ import com.bumptech.glide.Glide;
 
 import java.util.List;
 
-import cz.muni.pv239.marek.cv2.model.User;
+import cz.muni.pv239.marek.exercise2.model.User;
 
 public class UserAdapter extends ArrayAdapter<User>{
 

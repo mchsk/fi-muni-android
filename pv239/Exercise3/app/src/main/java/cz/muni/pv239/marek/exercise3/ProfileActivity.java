@@ -1,15 +1,13 @@
-package cz.muni.pv239.marek.cv3;
+package cz.muni.pv239.marek.exercise3;
 
-import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
-import cz.muni.pv239.marek.cv3.model.UserProfile;
+import cz.muni.pv239.marek.exercise3.model.UserProfile;
 import io.realm.Realm;
-import io.realm.RealmResults;
 
 public class ProfileActivity extends AppCompatActivity {
 

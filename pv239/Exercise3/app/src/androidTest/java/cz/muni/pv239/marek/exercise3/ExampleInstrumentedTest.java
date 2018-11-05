@@ -1,4 +1,4 @@
-package cz.muni.pv239.marek.cv3;
+package cz.muni.pv239.marek.exercise3;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;

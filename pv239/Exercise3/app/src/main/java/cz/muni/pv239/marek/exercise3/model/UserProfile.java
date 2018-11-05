@@ -1,4 +1,4 @@
-package cz.muni.pv239.marek.cv3.model;
+package cz.muni.pv239.marek.exercise3.model;
 
 import io.realm.RealmObject;
 import io.realm.annotations.Required;

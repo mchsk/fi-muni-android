@@ -1,15 +1,12 @@
-package cz.muni.pv239.marek.cv3;
+package cz.muni.pv239.marek.exercise3;
 
 import android.Manifest;
-import android.annotation.TargetApi;
-import android.app.Activity;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Build;
-import android.os.Environment;
 import android.provider.Settings;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;

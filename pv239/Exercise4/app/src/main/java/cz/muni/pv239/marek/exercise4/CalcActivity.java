@@ -1,6 +1,5 @@
-package cz.muni.pv239.marek.cv4;
+package cz.muni.pv239.marek.exercise4;
 
-import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;

@@ -1,4 +1,4 @@
-package cz.muni.pv239.marek.cv4;
+package cz.muni.pv239.marek.exercise4;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
@@ -21,6 +21,6 @@ public class ExampleInstrumentedTest {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getTargetContext();
 
-        assertEquals("cz.muni.pv239.marek.cv4", appContext.getPackageName());
+        assertEquals("cz.muni.pv239.marek.exercise4", appContext.getPackageName());
     }
 }

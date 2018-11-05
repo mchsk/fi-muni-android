@@ -1,10 +1,9 @@
-package cz.muni.pv239.marek.cv1;
+package cz.muni.pv239.marek.exercise1;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.TextView;
 
 public class SecondActivity extends AppCompatActivity {

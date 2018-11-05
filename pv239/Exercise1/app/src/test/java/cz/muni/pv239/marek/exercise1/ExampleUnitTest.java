@@ -1,4 +1,4 @@
-package cz.muni.pv239.marek.cv1;
+package cz.muni.pv239.marek.exercise1;
 
 import org.junit.Test;
 

@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">cv1</string>
+    <string name="app_name">Exercise1</string>
     <string name="send">Send</string>
     <string name="the_following_message_has_been_sent">The following message has been sent:</string>
 </resources>

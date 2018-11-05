@@ -38,6 +38,7 @@ android {
         }
     }
 
+    // https://medium.com/@mds6058/breaking-down-android-flavor-dimensions-4ea97fbac8a4
     flavorDimensions "version"
     productFlavors {
         demo {
